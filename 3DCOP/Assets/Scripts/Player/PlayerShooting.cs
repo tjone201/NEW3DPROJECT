@@ -17,6 +17,8 @@ public class PlayerShooting : MonoBehaviour
     Light gunLight;
     float effectsDisplayTime = 0.2f;
 
+    EnemyHealth enemyHealth;
+
 
     void Awake ()
     {
@@ -70,6 +72,22 @@ public class PlayerShooting : MonoBehaviour
 
         if(Physics.Raycast (shootRay, out shootHit, range, shootableMask))
         {
+            EnemyHealth enemyHealth = shootHit.collider.GetComponent<EnemyHealth>();
+
+            //IS NULL
+            Debug.Log(enemyHealth.currentHealth);
+            if (enemyHealth.currentHealth != null)
+            {
+                enemyHealth.TakeDamage (damagePerShot, shootHit.point);
+            }
+            gunLine.SetPosition (1, shootHit.point);
+        }
+        else
+        {
+            gunLine.SetPosition (1, shootRay.origin + shootRay.direction * range);
+        }
+        /*if(Physics.Raycast (shootRay, out shootHit, range, shootableMask))
+        {
             EnemyHealth enemyHealth = shootHit.collider.GetComponent <EnemyHealth> ();
 
             //IS NULL
@@ -84,6 +102,6 @@ public class PlayerShooting : MonoBehaviour
         {
             gunLine.SetPosition (1, shootRay.origin + shootRay.direction * range);
         }
-
+        */
     }
 }
