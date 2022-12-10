@@ -49,7 +49,6 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage (int amount)
     {
-        Debug.Log("HERE");
         damaged = true;
 
         currentHealth -= amount;

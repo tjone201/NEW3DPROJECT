@@ -70,8 +70,10 @@ public class PlayerShooting : MonoBehaviour
 
         if(Physics.Raycast (shootRay, out shootHit, range, shootableMask))
         {
-           
             EnemyHealth enemyHealth = shootHit.collider.GetComponent <EnemyHealth> ();
+
+            //IS NULL
+
             if(enemyHealth != null)
             {
                 enemyHealth.TakeDamage (damagePerShot, shootHit.point);
@@ -82,5 +84,6 @@ public class PlayerShooting : MonoBehaviour
         {
             gunLine.SetPosition (1, shootRay.origin + shootRay.direction * range);
         }
+
     }
 }
