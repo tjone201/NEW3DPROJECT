@@ -74,6 +74,7 @@
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\LowPolyOfficeProps_LITE\About.txt" />
     <None Include="Assets\Fonts\LuckiestGuy\FontLicense.txt" />
     <None Include="Assets\Sets - Gems\Shaders\Gem.shader" />
     <None Include="Assets\LogLog Games\Epic Combat Music Pack - Free\README.txt" />
