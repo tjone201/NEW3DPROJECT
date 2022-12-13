@@ -3,6 +3,7 @@
 public class GameOverManager : MonoBehaviour
 {
     public PlayerHealth playerHealth;
+    GameObject winningPanel;
 
 
     Animator anim;
@@ -11,6 +12,7 @@ public class GameOverManager : MonoBehaviour
     void Awake()
     {
         anim = GetComponent<Animator>();
+        winningPanel = GameObject.FindGameObjectWithTag("winningPanel");
     }
 
 
@@ -22,7 +24,12 @@ public class GameOverManager : MonoBehaviour
         }
         if(ScoreManager.score >= 6)
         {
-            anim.SetTrigger("You WIN!");
+            winningPanel.SetActive(true);
+        }
+        if (ScoreManager.score < 6)
+        {
+            winningPanel.SetActive(false);
         }
     }
+
 }
