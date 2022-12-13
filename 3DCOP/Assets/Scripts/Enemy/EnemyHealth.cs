@@ -9,7 +9,6 @@ public class EnemyHealth : MonoBehaviour
     public AudioClip deathClip;
 
 
-    Animator anim;
     AudioSource enemyAudio;
     ParticleSystem hitParticles;
     CapsuleCollider capsuleCollider;
@@ -19,9 +18,7 @@ public class EnemyHealth : MonoBehaviour
 
     void Awake ()
     {
-        anim = GetComponent <Animator> ();
         enemyAudio = GetComponent <AudioSource> ();
-        hitParticles = GetComponentInChildren <ParticleSystem> ();
         capsuleCollider = GetComponent <CapsuleCollider> ();
 
         currentHealth = startingHealth;
@@ -46,13 +43,12 @@ public class EnemyHealth : MonoBehaviour
         enemyAudio.Play ();
 
         currentHealth -= amount;
-            
-        hitParticles.transform.position = hitPoint;
-        hitParticles.Play();
+
 
         if(currentHealth <= 0)
         {
-            Death ();
+            Destroy(gameObject, 0f);
+            //Death ();
         }
     }
 
@@ -63,7 +59,6 @@ public class EnemyHealth : MonoBehaviour
 
         capsuleCollider.isTrigger = true;
 
-        anim.SetTrigger ("Dead");
 
         enemyAudio.clip = deathClip;
         enemyAudio.Play ();
