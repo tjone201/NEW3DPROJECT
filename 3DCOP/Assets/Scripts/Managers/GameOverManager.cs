@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour
 {
     public PlayerHealth playerHealth;
     GameObject winningPanel;
-
+    float timer;
 
     Animator anim;
 
@@ -13,6 +14,8 @@ public class GameOverManager : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         winningPanel = GameObject.FindGameObjectWithTag("winningPanel");
+        timer = 3f;
+        
     }
 
 
@@ -25,6 +28,12 @@ public class GameOverManager : MonoBehaviour
         if(ScoreManager.score >= 6)
         {
             winningPanel.SetActive(true);
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                SceneManager.LoadScene(0);
+            }
+            
         }
         if (ScoreManager.score < 6)
         {

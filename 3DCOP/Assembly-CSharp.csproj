@@ -53,6 +53,8 @@
     <UnityVersion>2019.4.40f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Demo\Low poly package\Scripts\GameHandler.cs" />
+    <Compile Include="Assets\Demo\Low poly package\Scripts\ScreenshotHandler.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyAttack.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyHealth.cs" />
